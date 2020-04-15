@@ -12,24 +12,32 @@ spring:
           enabled: true #Gateway开启服务注册和发现的功能
           lower-case-service-id: true #将请求路径上的服务名配置为小写（因为服务注册的时候，向注册中心注册时将服务名转成大写的了）
       # 跨域
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedHeaders: "*"
-            allowedOrigins: "*"
-            allowedMethods:
-              - GET
-                POST
-                DELETE
-                PUT
-                OPTION
-hystrix:
-  command:
-    fallbackcmd:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000 #超时时间，若不设置超时时间则有可能无法触发熔断
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedHeaders: "*"
+#            allowedOrigins: "*"
+#            allowedMethods:
+#              - GET
+#                POST
+#                DELETE
+#                PUT
+#                OPTION
+#hystrix:
+#  command:
+#    fallbackcmd:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000 #超时时间，若不设置超时时间则有可能无法触发熔断
+management: #开启SpringBoot Admin的监控
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
 logging:
   level:
     org.springframework.cloud.gateway: debug
