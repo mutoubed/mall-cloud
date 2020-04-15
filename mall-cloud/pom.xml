@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mall-gateway</module>
+        <module>mall-registry</module>
     </modules>
 
     <parent>
